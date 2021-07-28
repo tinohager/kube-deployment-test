@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: nager-date-example
+  name: nager-date
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: nager-date-example
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: nager-date-example
+    spec:
+      containers:
+      - image: nager/nager-date:latest
+        name: nager-date
+        ports:
+        - containerPort: 8081
